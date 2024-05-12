@@ -1,1 +1,34 @@
-<p>reservation-list works!</p>
+<div>
+    <app-home></app-home>
+    <h2 class="mt-5 mb-3">Reservation List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Guest Name</th>
+                <th>Guest Email</th>
+                <th>Room No.</th>
+                <th>Check In Date</th>
+                <th>Check Out Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let res of reservations">
+                <td>{{res.guestName}}</td>
+                <td>{{res.guestEmail}}</td>
+                <td>{{res.roomNumber}}</td>
+                <td>{{res.checkInDate}}</td>
+                <td>{{res.checkOutDate}}</td>
+                <td>
+                    <i style="cursor: pointer;" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover mx-3" (click)="deleteReservation(res.id)">Delete
+                    </i>
+                    <i style="cursor: pointer;" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" [routerLink]="['/edit-reservation', res.id]">Edit
+                    </i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #noReservation>
+    <p>No reservation available.</p>
+</ng-template>

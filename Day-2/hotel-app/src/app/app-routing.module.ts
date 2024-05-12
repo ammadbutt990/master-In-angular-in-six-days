@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: "new-reservation",
     component: ReservationFormComponent
+  },
+  {
+    path: "edit-reservation/:id",
+    component: ReservationFormComponent
   }
 ];
 
